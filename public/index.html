@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="css/normalize.css" /> -->
+    <!-- <link rel="stylesheet" href="css/styles.css" /> -->
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Node+Express+PostgreSQL</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <main>
+          <form id="crud" action="#" method="POST">
+            <div class="form-row">
+              <label for="userid">Введите id</label>
+              <input type="text" name="userid" id="userid" autocomplete="false" placeholder="number">
+            </div>
+            <div class="form-row">
+              <label for="username">Введите name</label>
+              <input type="text" name="username" id="username" autocomplete="false">
+            </div>
+            <div class="form-row">
+              <label for="results">response</label>
+              <textarea id="results" name="results" cols="30" rows="10" style="resize: none;" readonly>
+              </textarea>
+            </div>
+            <div class="form-buttons">
+              <button type="submit" class="block" data-type="all">select all</button>
+              <button type="button" class="block" data-type="search">search (id)</button>
+              <button type="button" class="block" data-type="create">create (name)</button>
+              <button type="button" class="block" data-type="update">update (id, name)</button>
+              <button type="button" class="block" data-type="delete">delete (id)</button>
+            </div>
+          </form>
+          
+          <table>
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Действия</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </main>
+      </div>
+    </div>
+
+    <script src="js/index.js" type="module"></script>
+  </body>
+</html>
