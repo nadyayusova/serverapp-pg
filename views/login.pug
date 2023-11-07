@@ -1,0 +1,20 @@
+extends layout
+
+block variables
+  - const title = "Login"
+
+
+block main
+  main
+    .container
+      h1.visually-hidden Страница входа в приложение 
+      form(id="login" action="" method="POST")
+        h2 Авторизация
+        .form-row
+          label(for="username") Логин (любой)
+          input(type="text" name="username" id="username" autocomplete="false" required)
+        .form-row
+          label(for="userpassword") Пароль (любой)
+          input(type="password" name="userpassword" id="userpassword" autocomplete="false" required)
+        .form-buttons
+          button(type="submit" class="block") Войти

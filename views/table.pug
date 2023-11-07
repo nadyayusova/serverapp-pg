@@ -1,0 +1,36 @@
+extends layout
+
+block variables
+  - const title = "Node+Express+PostgreSQL"
+
+
+block main
+  main
+    .container
+      h1.visually-hidden Основная страница приложения
+      form(id="crud" action="#" method="POST")
+        .form-row
+          label(for="userid") Введите id
+          input(type="text" name="userid" id="userid" autocomplete="false" placeholder="number")
+        .form-row
+          label(for="username") Введите name
+          input(type="text" name="username" id="username" autocomplete="false")
+        .form-row
+          label(for="results") response
+          textarea(id="results" name="results" cols="30" rows="10" readonly)
+        .form-buttons
+          button(class="block" type="submit" data-type="all") select all
+          button(class="block" type="button" data-type="search") search (id)
+          button(class="block" type="button" data-type="create") create (name)
+          button(class="block" type="button" data-type="update") update (id, name)
+          button(class="block" type="button" data-type="delete") delete (id)
+        .form-row
+          a(class="log-out-link" href="/logout") Log out
+      
+      table
+        thead
+          tr 
+            th Id
+            th Name
+            th Действия
+        tbody
