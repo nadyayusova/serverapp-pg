@@ -3,8 +3,8 @@ import express from 'express';
 // - установить PostgreSQL
 // - создать БД по скрипту из data/database.sql и заполнить данными
 // раскомментировать строку ниже и закомментировать следующую за ней
-import { user } from '../controllers/user.controller.js';
-// import { user } from '../controllers/local.user.controller.js';
+// import { user } from '../controllers/user.controller.js';
+import { user } from '../controllers/local.user.controller.js';
 
 const router = express.Router();
 
@@ -20,4 +20,4 @@ router.route('/:userid').get(user.getOneUser).delete(user.deleteUser);
 //   .get([authCheck, user.getOneUser])
 //   .delete([authCheck, user.deleteUser]);
 
-export {router as userRoute};
+export { router as userRoute };
