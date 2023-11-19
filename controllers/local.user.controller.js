@@ -1,4 +1,4 @@
-import { users } from '../data/data.js';
+import {users} from '../data/data.js';
 
 class LocalUserController {
   constructor() {
@@ -10,10 +10,10 @@ class LocalUserController {
   }
 
   async createUser(req, res) {
-    const { username } = req.body
+    const {username} = req.body
     if (!username) {
       return res
-        .status(400)
+        .status(204)
         .json({});
     }
 
@@ -27,9 +27,9 @@ class LocalUserController {
       userid = '1';
     }
 
-    const newUser = { 'user_id': userid, 'user_name': username };
+    const newUser = {'user_id': userid, 'user_name': username};
     users.push(newUser);
-    res.status(201).send([ newUser ]);
+    res.status(201).send([newUser]);
   }
 
   async getUsers(req, res) {
@@ -38,30 +38,31 @@ class LocalUserController {
 
   async getOneUser(req, res) {
     const userid = req.params.userid;
+    console.log(userid);
 
     if (!userid) {
       return res
-        .status(400)
+        .status(204)
         .json({});
     }
 
     const oneUser = users.find((person) => person['user_id'] === userid);
-    res.status(200).send([ oneUser ]);
+    res.status(200).send([oneUser]);
   }
 
   async updateUser(req, res) {
-    const { userid, username } = req.body;
+    const {userid, username} = req.body;
     const index = users.findIndex((person) => person['user_id'] === userid);
     const user = users[index];
-  
+
     if (!user) {
       return res
-        .status(404)
+        .status(204)
         .json({});
     }
 
     users[index]['user_name'] = username;
-    res.status(200).json([ user ]);
+    res.status(200).json([user]);
   }
 
   async deleteUser(req, res) {
@@ -71,12 +72,12 @@ class LocalUserController {
 
     if (!user) {
       return res
-      .status(404)
-      .json({});
+        .status(204)
+        .json({});
     }
-    
+
     users.splice(index, 1);
-    return res.status(200).json([ user ]);
+    return res.status(200).json([user]);
   }
 };
 

@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
-import { userRoute } from './routes/user.routes.js';
-import { userState } from './db/auth.js';
+import {userRoute} from './routes/user.routes.js';
+import {userState} from './db/auth.js';
 
 const PORT = process.argv[2] || process.env.PORT || 3117;
 const USER_ROUTE = '/api/v1/user';
@@ -16,7 +16,7 @@ app.set('view engine', 'pug');
 // static assets
 app.use(express.static(STATIC_DIR));
 // parse form data
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 // parse json
 app.use(express.json());
 
@@ -60,13 +60,13 @@ app.get("/not-found", function (req, res) {
 
   // respond with html page
   if (req.accepts('html')) {
-    res.render('404', { url: req.url });
+    res.render('404', {url: req.url});
     return;
   }
 
   // respond with json
   if (req.accepts('json')) {
-    res.json({ error: 'Not found' });
+    res.json({error: 'Not found'});
     return;
   }
 
